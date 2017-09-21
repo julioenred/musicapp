@@ -17,13 +17,13 @@ class MusicApp
         switch ($action) 
         {
             case 'getsong':
-                $getSongView = new GetSongView('getsong.html');
+                $getSongView = new GetSongView('./views/getsong.html');
                 $getSongView->show();
                 break;
             case 'addsong':
                 $input = $_POST;
                 
-                $view = new View('getsong.html');
+                $view = new View('./views/getsong.html');
                 $view->show();
                 break;
             default:
