@@ -1,31 +1,26 @@
 <?php 
 
-class View
+abstract class View
 {
-    private $file;
+    protected $html;
 
     function __construct($file)
     {
-        $this->file = $file;
+        $this->html = new DOMDocument();
+        $this->html->loadHtmlFile($file);
     }
 
     public function show()
     {
-        $html = new DOMDocument();
-        $html->loadHtmlFile($this->file);
-
-        // $etiqueta = $html->getElementById('title');
-        // $etiqueta->nodeValue = $elemento['texto'];
-        // foreach ($datos as $key => $elemento) 
-        // {
-        //     $etiqueta = $html->getElementById($elemento['id']);
-        //     $etiqueta->nodeValue = $elemento['texto'];
-        // }
-        echo $html->saveHtml();
+        $this->render();
+        echo $this->html->saveHtml();
     }
 
-    public function render()
-    {
-        
-    }
+    abstract protected function render();
+
+    // abstract private function render()
+    // {
+    //     $etiqueta = $this->html->getElementById('title');
+    //     $etiqueta->setAttribute('class', 'none');
+    // }
 }

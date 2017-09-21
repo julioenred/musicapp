@@ -17,8 +17,8 @@ class MusicApp
         switch ($action) 
         {
             case 'getsong':
-                $view = new View('getsong.html');
-                $view->show();
+                $getSongView = new GetSongView('getsong.html');
+                $getSongView->show();
                 break;
             case 'addsong':
                 $input = $_POST;
