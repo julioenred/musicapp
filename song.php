@@ -13,6 +13,11 @@ class Song
         $this->urlYoutube = $song['youtube'];
     }
 
+    public function add($session)
+    {
+        $session->add()
+    }
+
     public function play()
     {
         $view = new View('playsong.html');

@@ -3,6 +3,8 @@
 include 'request.php';
 include 'musicapp.php';
 include 'session.php';
+include 'list.php';
+include 'helpers.php';
 include './views/view.php';
 include './views/getsongview.php';
 

@@ -1,6 +1,6 @@
 <?php 
 
-class List 
+class Lista 
 {
     private $songs;
     private $title;
@@ -25,8 +25,4 @@ class List
     {
 
     }
-
-
-
-
 }

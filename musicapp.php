@@ -9,6 +9,19 @@ class MusicApp
     {
         $this->request = $request;
         $this->session = $session;
+        if (!$this->session->config()) 
+        {
+            $this->config(new Lista('all'));
+        }
+    }
+
+    private function config($list)
+    {
+        if (!$this->session->config()) 
+        {
+            $this->session->add(LISTS, $list);
+            $this->session->update('config', true);
+        }
     }
 
     public function run()
@@ -29,19 +42,11 @@ class MusicApp
                 $view = new View('./views/getsong.html');
                 $view->show();
                 break;
-            case 'prueba':
-                $this->session->add('prueba', 'prueba');
-                var_dump($this->session);
-                break;
-            case 'trace':
-                $this->session->add('trace', 'trace');
-                var_dump($this->session);
-                break;
             case 'session':
-                var_dump($this->session);
+                Helpers::show($this->session);
                 break;
-            case 'destroy':
-                $this->session->destroy();
+            case 'reset':
+                $this->session->reset();
                 break;
             default:
                 echo 'página no encontrada';

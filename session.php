@@ -8,11 +8,20 @@ class Session
     function __construct()
     {
         $this->session = $_SESSION;
+        if (!isset($this->session['config'])) 
+        {
+            $this->session['config'] = false;
+        }
     }
 
     private function save()
     {
         $_SESSION = $this->session;
+    }
+
+    public function config()
+    {
+        return $this->session['config'];
     }
 
     public function add($index, $element)
@@ -29,6 +38,12 @@ class Session
         
     }
 
+    public function update($index, $element)
+    {
+        $this->session[$index] = $element;
+        $this->save();
+    }
+
     public function remove($index)
     {
         if (isset($this->session[$index])) 
@@ -37,7 +52,7 @@ class Session
         }  
     }
 
-    public function destroy()
+    public function reset()
     {
         session_destroy();
     }
