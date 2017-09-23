@@ -19,7 +19,8 @@ class MusicApp
     {
         if (!$this->session->config()) 
         {
-            $this->session->add(LISTS, $list);
+            $lists = [$list];
+            $this->session->add(LISTS, $lists);
             $this->session->update('config', true);
         }
     }
@@ -36,11 +37,11 @@ class MusicApp
                 break;
             case 'addsong':
                 $input = $_POST;
-                var_dump($input);
+                $song = new Song($input);
+                $list = $this->session->getList('all');
+                $list->add($song);
+                echo 'canción añadida';
                 exit;
-                
-                $view = new View('./views/getsong.html');
-                $view->show();
                 break;
             case 'session':
                 Helpers::show($this->session);

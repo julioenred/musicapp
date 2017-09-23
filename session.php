@@ -24,6 +24,23 @@ class Session
         return $this->session['config'];
     }
 
+    public function getList($title)
+    {
+        foreach ($this->session as $key => $element) 
+        {
+            if ($key == LISTS) 
+            {
+                foreach ($this->session[$key] as $list) 
+                {
+                    if ($list->title() == $title) 
+                    {
+                        return $list;
+                    }
+                }
+            }
+        }
+    }
+
     public function add($index, $element)
     {
         $counter = 0;

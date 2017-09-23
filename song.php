@@ -13,9 +13,9 @@ class Song
         $this->urlYoutube = $song['youtube'];
     }
 
-    public function add($session)
+    public function update()
     {
-        $session->add()
+        
     }
 
     public function play()

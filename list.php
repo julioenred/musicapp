@@ -11,9 +11,14 @@ class Lista
         $this->songs = [];
     }
 
+    public function title()
+    {
+        return $this->title;
+    }
+
     public function add($song)
     {
-
+        $this->songs[] = $song;
     }
 
     public function remove($song)
