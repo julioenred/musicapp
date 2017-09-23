@@ -26,6 +26,11 @@ class Lista
 
     }
 
+    public function songs()
+    {
+        return $this->songs;
+    }
+
     public function play()
     {
 

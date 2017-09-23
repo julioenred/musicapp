@@ -43,6 +43,10 @@ class MusicApp
                 echo 'canción añadida';
                 exit;
                 break;
+            case 'viewsongs':
+                $viewSongsView = new viewSongsView('./views/viewsongs.html', $this->session);
+                $viewSongsView->show();
+                break;
             case 'session':
                 Helpers::show($this->session);
                 break;

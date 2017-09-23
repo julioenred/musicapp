@@ -8,6 +8,7 @@ include 'list.php';
 include 'helpers.php';
 include './views/view.php';
 include './views/getsongview.php';
+include './views/viewsongsview.php';
 
 session_start();
 

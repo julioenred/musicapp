@@ -2,7 +2,6 @@
 
 class Session
 {
-    
     private $session;
 
     function __construct()

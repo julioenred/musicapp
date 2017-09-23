@@ -3,11 +3,13 @@
 abstract class View
 {
     protected $html;
+    protected $data;
 
-    function __construct($file)
+    function __construct($file, $data = [])
     {
         $this->html = new DOMDocument();
         $this->html->loadHtmlFile($file);
+        $this->data = $data;
     }
 
     public function show()
